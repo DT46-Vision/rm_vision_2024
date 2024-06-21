@@ -79,6 +79,15 @@ docker run -it --name rv_devel \
 ghcr.io/fateryu/rm_vision:latest \
 ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 ```
+```
+# 若上面的不可用，使用端口映射再启动
+docker run -it --name rv_devel \
+--privileged -p 8765:8765 \
+-v /dev:/dev -v $HOME/.ros:/root/.ros -v ws:/ros_ws \
+ghcr.io/fateryu/rm_vision:latest \
+ros2 launch foxglove_bridge foxglove_bridge_launch.xml 
+
+```
 
 构建运行容器
 
