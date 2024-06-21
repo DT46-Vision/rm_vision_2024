@@ -66,20 +66,20 @@ HikVision 相机模块 https://github.com/FaterYU/ros2_hik_camera
 
 拉取镜像
 
-```
+```bash
 docker pull ghcr.io/fateryu/rm_vision:latest
 ```
 
 构建开发容器
 
-```
+```bash
 docker run -it --name rv_devel \
 --privileged --network host \
 -v /dev:/dev -v $HOME/.ros:/root/.ros -v ws:/ros_ws \
 ghcr.io/fateryu/rm_vision:latest \
 ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 ```
-```
+```bash
 # 若上面的不可用，使用端口映射再启动
 docker run -it --name rv_devel \
 --privileged -p 8765:8765 \
@@ -91,7 +91,7 @@ ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 
 构建运行容器
 
-```
+```bash
 docker run -it --name rv_runtime \
 --privileged --network host --restart always \
 -v /dev:/dev -v $HOME/.ros:/root/.ros -v ws:/ros_ws \
